@@ -46,13 +46,39 @@ main,
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
   padding: 22px 0;
 }
 
-.brand {
+.brand,
+.brand-link {
   font-family: "Space Grotesk", sans-serif;
   letter-spacing: 0.12em;
   font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 7px 12px;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--ink);
+  border-color: var(--border);
 }
 
 .hero {
@@ -168,6 +194,98 @@ h1 {
   font-size: 0.92rem;
 }
 
+.page-hero {
+  padding: 28px 0 18px;
+  animation: fadeUp 700ms ease both;
+}
+
+.page-hero h1 {
+  max-width: 100%;
+}
+
+.section-title {
+  margin: 28px 0 14px;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.timeline .card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0 24px;
+}
+
+.project-card {
+  padding: 22px;
+}
+
+.project-card h3 {
+  margin: 0 0 10px;
+}
+
+.project-meta {
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.form-preview {
+  padding: 22px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.form-row label {
+  color: var(--muted);
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: rgba(7, 15, 33, 0.65);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.field::placeholder {
+  color: #97a4cc;
+}
+
+.contact-info {
+  padding: 22px;
+}
+
+.contact-info p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -181,7 +299,10 @@ h1 {
 
 @media (max-width: 860px) {
   .features,
-  .stats {
+  .stats,
+  .timeline,
+  .project-grid,
+  .contact-wrap {
     grid-template-columns: 1fr;
   }
 }
